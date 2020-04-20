@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FinalProject</string>
+    <string name="login_btn_text">Login to account</string>
+    <string name="login_reg_btn">Need a new account?</string>
+    <string name="action_account_settings">Account Settings</string>
+    <string name="action_logout_text">Logout</string>
+    />
 </resources>
