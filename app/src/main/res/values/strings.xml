@@ -4,5 +4,9 @@
     <string name="login_reg_btn">Need a new account?</string>
     <string name="action_account_settings">Account Settings</string>
     <string name="action_logout_text">Logout</string>
+    <string name="reg_pass_text">Enter Password</string>
+    <string name="reg_confirm_pass_text">Confirm Password</string>
+    <string name="reg_btn_text">Register Account</string>
+    <string name="reg_login_btn_text">Already have an account?</string>
     />
 </resources>

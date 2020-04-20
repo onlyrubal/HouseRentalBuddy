@@ -5,11 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/secondaryLightColor"
-    android:contentDescription="Login page logo"
-    tools:context=".LoginActivity">
-
+    tools:context=".RegisterActivity">
     <ImageView
-        android:id="@+id/loginPageLogo"
+        android:id="@+id/regPageLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -17,14 +15,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/applogo" />
+        app:srcCompat="@drawable/register_logo" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textField"
+        android:id="@+id/textField4"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="393dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="250dp"
         android:hint="Enter your Email"
         android:textColor="@color/primaryTextColor"
         android:textColorHint="@color/primaryDarkColor"
@@ -38,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_email"
+            android:id="@+id/reg_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:height="55dp"
@@ -49,12 +47,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textField1"
+        android:id="@+id/textField6"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="393dp"
         android:layout_height="60dp"
-        android:layout_marginTop="400dp"
-        android:hint="Enter Password"
+        android:layout_marginTop="350dp"
+        android:hint="@string/reg_pass_text"
         android:textColor="@color/primaryTextColor"
         android:textColorHint="@color/primaryDarkColor"
         app:boxBackgroundMode="outline"
@@ -70,7 +68,38 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_password"
+            android:id="@+id/reg_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="55dp"
+            android:password="true"
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/primaryDarkColor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField5"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="393dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="450dp"
+        android:hint="@string/reg_confirm_pass_text"
+        android:textColor="@color/primaryTextColor"
+        android:textColorHint="@color/primaryDarkColor"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/primaryDarkColor"
+        app:counterEnabled="true"
+        app:counterMaxLength="30"
+        app:counterTextColor="@color/primaryDarkColor"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/primaryDarkColor"
+        app:hintTextColor="@color/primaryDarkColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/reg_confirm_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:height="55dp"
@@ -81,14 +110,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/reg_btn"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="393dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="548dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        android:text="@string/login_btn_text"
+        android:text="@string/reg_btn_text"
         android:textColor="@color/primaryDarkColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,14 +125,14 @@
         app:strokeColor="@color/primaryDarkColor" />
 
     <Button
-        android:id="@+id/login_reg_btn"
+        android:id="@+id/reg_login_btn"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="393dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="640dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        android:text="@string/login_reg_btn"
+        android:text="@string/reg_login_btn_text"
         android:textColor="@color/secondaryLightColor"
         app:backgroundTint="@color/primaryDarkColor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +141,7 @@
         app:strokeColor="@color/primaryDarkColor" />
 
     <ProgressBar
-        android:id="@+id/login_progress"
+        android:id="@+id/reg_progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

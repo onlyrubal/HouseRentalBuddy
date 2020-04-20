@@ -43,6 +43,15 @@ public class LoginActivity extends AppCompatActivity {
         loginRegBtn = findViewById(R.id.login_reg_btn);
         loginProgress = findViewById(R.id.login_progress);
 
+        //Created on click listener for the register button
+        loginRegBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(registerIntent);
+            }
+        });
+
         //To Authenticate the user after entering email and password text from the fields.
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
