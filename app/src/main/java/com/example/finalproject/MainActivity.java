@@ -5,22 +5,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toolbar;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar mainToolbar;
-    FirebaseAuth mAuth;
+    private FloatingActionButton addPostBtn;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
+
+        addPostBtn = findViewById(R.id.add_post_btn);
+        addPostBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
     }
 
     @Override
@@ -46,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case (R.id.action_logout_btn):
                 logOut();
+                return true;
+            case (R.id.action_settings_btn):
+                Intent settingsIntent = new Intent(MainActivity.this,SetupActivity.class);
+                startActivity(settingsIntent);
                 return true;
             default:
                 return false;

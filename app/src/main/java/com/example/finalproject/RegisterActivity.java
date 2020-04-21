@@ -41,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         regLoginBtn = (Button) findViewById(R.id.reg_login_btn);
         regProgress = (ProgressBar) findViewById(R.id.reg_progress);
 
+
         regLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +71,12 @@ public class RegisterActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    sendToMain();
+                                    // We can write logic here to create a user name as well as profile pic. But if internet stops
+                                    // after account creation, the account would still be created and no name would be there for user.
+                                    //So app might crash. So, we gave this responsibility to SetupActivity class.
+                                    Intent setupIntent = new Intent(RegisterActivity.this, SetupActivity.class);
+                                    startActivity(setupIntent);
+                                    finish();
                                 }else{
                                     String errorMessage = task.getException().getMessage();
                                     Toast.makeText(RegisterActivity.this,"Error: " + errorMessage, Toast.LENGTH_LONG);

@@ -5,29 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/secondaryLightColor"
-    tools:context=".RegisterActivity">
-    <ImageView
-        android:id="@+id/regPageLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+    tools:context=".SetupActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/setup_image"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/default_profile_image"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/register_logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textField4"
+        android:id="@+id/textField8"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="393dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:hint="Enter your Email"
+        android:layout_height="60dp"
+        android:layout_marginTop="350dp"
+        android:hint="@string/setup_name"
         android:textColor="@color/primaryTextColor"
         android:textColorHint="@color/primaryDarkColor"
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="@color/primaryDarkColor"
+        app:counterEnabled="true"
+        app:counterMaxLength="15"
+        app:counterTextColor="@color/primaryDarkColor"
         app:endIconMode="clear_text"
         app:endIconTint="@color/primaryDarkColor"
         app:hintTextColor="@color/primaryDarkColor"
@@ -36,62 +41,33 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/reg_email"
+            android:id="@+id/setup_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:counterTextColor="@color/primaryDarkColor"
             android:height="55dp"
-            android:autoLink="email"
-            android:textColor="@color/primaryTextColor"
-            android:textColorHint="@color/primaryDarkColor" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textField6"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="393dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="350dp"
-        android:hint="@string/reg_pass_text"
-        android:textColor="@color/primaryTextColor"
-        android:textColorHint="@color/primaryDarkColor"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/primaryDarkColor"
-        app:counterEnabled="true"
-        app:counterMaxLength="30"
-        app:counterTextColor="@color/primaryDarkColor"
-        app:endIconMode="password_toggle"
-        app:endIconTint="@color/primaryDarkColor"
-        app:hintTextColor="@color/primaryDarkColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/reg_pass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:height="55dp"
-            android:password="true"
             android:textColor="@color/primaryTextColor"
             android:textColorHint="@color/primaryDarkColor" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textField5"
+        android:id="@+id/textField9"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="393dp"
         android:layout_height="60dp"
         android:layout_marginTop="450dp"
-        android:hint="@string/reg_confirm_pass_text"
+        android:hint="@string/setup_phone_no"
         android:textColor="@color/primaryTextColor"
         android:textColorHint="@color/primaryDarkColor"
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="@color/primaryDarkColor"
         app:counterEnabled="true"
-        app:counterMaxLength="30"
+        app:counterMaxLength="12"
         app:counterTextColor="@color/primaryDarkColor"
-        app:endIconMode="password_toggle"
+        app:endIconMode="clear_text"
         app:endIconTint="@color/primaryDarkColor"
         app:hintTextColor="@color/primaryDarkColor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,59 +75,45 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/reg_confirm_pass"
+            android:id="@+id/setup_phone_no"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:height="55dp"
-            android:password="true"
             android:textColor="@color/primaryTextColor"
+            android:inputType="phone"
             android:textColorHint="@color/primaryDarkColor" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/reg_btn"
+        android:id="@+id/setup_btn"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="393dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="548dp"
+        android:layout_marginTop="560dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        android:text="@string/reg_btn_text"
+        android:text="@string/setup_btn_name_text"
+        android:textAllCaps="false"
         android:textColor="@color/primaryDarkColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/primaryDarkColor" />
-
-    <Button
-        android:id="@+id/reg_login_btn"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="393dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="640dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:text="@string/reg_login_btn_text"
-        android:textColor="@color/secondaryLightColor"
-        app:backgroundTint="@color/primaryDarkColor"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/primaryDarkColor" />
 
     <ProgressBar
-        android:id="@+id/reg_progress"
+        android:id="@+id/setup_progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:backgroundTint="@color/secondaryLightColor"
         android:indeterminate="true"
+        android:indeterminateBehavior="cycle"
+        android:indeterminateOnly="false"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
