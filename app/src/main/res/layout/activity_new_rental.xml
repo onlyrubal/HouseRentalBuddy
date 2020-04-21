@@ -4,6 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/secondaryLightColor"
     tools:context=".NewRentalActivity">
+
+    <ImageView
+        android:id="@+id/new_rental_image"
+        android:layout_width="412dp"
+        android:layout_height="252dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/random_image_1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField10"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="393dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="280dp"
+        android:hint="@string/new_rental_description_text"
+        android:textColor="@color/primaryTextColor"
+        android:textColorHint="@color/primaryDarkColor"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/primaryDarkColor"
+        app:counterEnabled="true"
+        app:counterMaxLength="40"
+        app:counterTextColor="@color/primaryDarkColor"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/primaryDarkColor"
+        app:hintTextColor="@color/primaryDarkColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/new_rental_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="55dp"
+            android:maxLength="50"
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/primaryDarkColor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField11"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="393dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="360dp"
+        android:hint="@string/new_rental_price_text"
+        android:textColor="@color/primaryTextColor"
+        android:textColorHint="@color/primaryDarkColor"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/primaryDarkColor"
+        app:counterEnabled="true"
+        app:counterMaxLength="40"
+        app:counterTextColor="@color/primaryDarkColor"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/primaryDarkColor"
+        app:hintTextColor="@color/primaryDarkColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/new_rental_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="55dp"
+            android:inputType="number"
+            android:maxLength="5"
+            android:phoneNumber="false"
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/primaryDarkColor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/rental_btn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="393dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="652dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:text="@string/post_btn_text"
+        android:textAllCaps="false"
+        android:textColor="@color/primaryDarkColor"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/primaryDarkColor" />
+
+    <ProgressBar
+        android:id="@+id/new_rental_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:indeterminate="true"
+        android:indeterminateBehavior="cycle"
+        android:indeterminateOnly="false"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

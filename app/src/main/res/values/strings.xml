@@ -11,5 +11,14 @@
     <string name="setup_name">Your Name</string>
     <string name="setup_phone_no">Your Contact Number</string>
     <string name="setup_btn_name_text">Save Account Settings</string>
+    <string name="new_rental_description_text">Add Description</string>
+    <string name="post_btn_text">Post Rental</string>
+    <string name="new_rental_price_text">Enter Price</string>
+    <string name="bottom_home_text">Home</string>
+    <string name="bottom_notification_text">Favourites</string>
+    <string name="bottom_account_text">Account</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     />
 </resources>
