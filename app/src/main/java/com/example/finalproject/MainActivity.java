@@ -90,8 +90,6 @@ public class MainActivity extends AppCompatActivity {
         }
         //Means if the user logged in then only we can apply the check
         else{
-            //Setting the default fragment
-            replaceFragment(homeFragment);
             currentUserId = mAuth.getCurrentUser().getUid();
             firebaseFirestore.collection("Users").document(currentUserId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override

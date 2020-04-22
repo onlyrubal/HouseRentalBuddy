@@ -95,8 +95,10 @@ public class NewRentalActivity extends AppCompatActivity {
                 //Getting the random name for the rental image.
                 final String randomName = UUID.randomUUID().toString();
 
-                if(!TextUtils.isEmpty(desc) && ! TextUtils.isEmpty(price) && (rentalImageURI !=null)){
+                if(!TextUtils.isEmpty(desc) && !TextUtils.isEmpty(price) && (rentalImageURI !=null)){
+
                     newRentalProgress.setVisibility(View.VISIBLE);
+
                     final StorageReference filePath = storageReference.child("rental_images").child(randomName + ".jpg");
 
                     //NEW VERSION OF CODE
@@ -126,7 +128,7 @@ public class NewRentalActivity extends AppCompatActivity {
 
                                     //Storing the thumb files with same random name as the original file.
                                     UploadTask uploadTask = storageReference.child("rental_images/thumbs")
-                                            .child(randomName + "jpg").putBytes(thumbData);
+                                            .child(randomName + ".jpg").putBytes(thumbData);
 
                                     uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                                 @Override
@@ -135,7 +137,7 @@ public class NewRentalActivity extends AppCompatActivity {
                                                     String downloadThumbURI = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
                                                     Map<String, Object> rentalMap = new HashMap<>();
                                                     rentalMap.put("image_url", downloadURI.toString());
-                                                    rentalMap.put("thumb", downloadThumbURI.toString());
+                                                    rentalMap.put("image_thumb", downloadThumbURI.toString());
                                                     rentalMap.put("desc", desc);
                                                     rentalMap.put("price", price);
                                                     rentalMap.put("user_id", currentUserID);
