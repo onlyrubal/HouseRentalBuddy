@@ -46,6 +46,10 @@
             android:layout_height="wrap_content"
             app:counterEnabled="true"
             app:counterMaxLength="15"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
             app:counterTextColor="@color/primaryDarkColor"
             android:height="55dp"
             android:textColor="@color/primaryTextColor"
@@ -79,8 +83,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:height="55dp"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
             android:inputType="phone"
             android:phoneNumber="true"
+            android:imeOptions="actionNext"
             android:textColor="@color/primaryTextColor"
             android:textColorHint="@color/primaryDarkColor" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -101,6 +109,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/primaryDarkColor" />
+
+    <Button
+        android:id="@+id/setup_logout_btn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="393dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="652dp"
+        android:backgroundTint="@color/redColor"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:text="@string/action_logout_text"
+        android:textColor="@color/secondaryLightColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/redColor" />
 
     <ProgressBar
         android:id="@+id/setup_progress"

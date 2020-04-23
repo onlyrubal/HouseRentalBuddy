@@ -43,6 +43,10 @@
             android:layout_height="wrap_content"
             android:height="55dp"
             android:autoLink="email"
+            android:imeOptions="actionNext"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
             android:textColor="@color/primaryTextColor"
             android:textColorHint="@color/primaryDarkColor" />
 
@@ -74,6 +78,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:height="55dp"
+            android:imeOptions="actionNext"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
             android:password="true"
             android:textColor="@color/primaryTextColor"
             android:textColorHint="@color/primaryDarkColor" />

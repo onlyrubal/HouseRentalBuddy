@@ -48,6 +48,7 @@ public class SetupActivity extends AppCompatActivity {
     private TextInputEditText setupName;
     private TextInputEditText setupContactNumber;
     private Button setupBtn;
+    private Button setupLogoutBtn;
     private ProgressBar setupProgress;
 
     private StorageReference storageReference;
@@ -68,6 +69,7 @@ public class SetupActivity extends AppCompatActivity {
         setupName = (TextInputEditText) findViewById(R.id.setup_name);
         setupContactNumber = (TextInputEditText) findViewById(R.id.setup_phone_no);
         setupBtn = (Button) findViewById(R.id.setup_btn);
+        setupLogoutBtn = (Button) findViewById(R.id.setup_logout_btn);
         setupProgress = (ProgressBar) findViewById(R.id.setup_progress);
         user_id = FirebaseAuth.getInstance().getUid();
 
@@ -161,45 +163,17 @@ public class SetupActivity extends AppCompatActivity {
                             });
                         }
                     });
-
-                    // Old Version of the android code NOT COMPATIBLE.
-                    /*imagePath.putFile(mainImageURI).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-
-                            if(task.isSuccessful()){
-                               Uri download_uri = task.getResult().getUploadSessionUri();
-
-                               Map<String, String> userMap = new HashMap<>();
-                               userMap.put("name",userName);
-                               userMap.put("contact_number", userContactNumber);
-                               userMap.put("image", download_uri.toString());
-                               firebaseFirestore.collection("Users").document(userId).set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                   @Override
-                                   public void onComplete(@NonNull Task<Void> task) {
-                                       if(task.isSuccessful()){
-                                           Toast.makeText(SetupActivity.this, "Settings updated", Toast.LENGTH_LONG).show();
-                                           Intent mainIntent = new Intent(SetupActivity.this, MainActivity.class);
-                                           finish();
-                                       }else{
-                                           String error = task.getException().getMessage();
-                                           Toast.makeText(SetupActivity.this, "FireStore Error : " + error, Toast.LENGTH_LONG).show();
-                                       }
-
-                                       setupProgress.setVisibility(View.INVISIBLE);
-                                   }
-                               });
-
-
-                            }else{
-                                String setupError = task.getException().getMessage();
-                                Toast.makeText(SetupActivity.this, "IMAGE Error : " + setupError, Toast.LENGTH_LONG).show();
-                                setupProgress.setVisibility(View.INVISIBLE);
-                            }
-                        }
-                    });
-*/
                 }
+            }
+        });
+
+        // Logging out the current user and giving user the option to logout even before setting up an account.
+        setupLogoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Removing current user session and then sending back user to the login page.
+                firebaseAuth.signOut();
+                sendToLogin();
             }
         });
 
@@ -212,6 +186,7 @@ public class SetupActivity extends AppCompatActivity {
                     ActivityCompat.requestPermissions(SetupActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
                 }
                 else{
+                    Toast.makeText(SetupActivity.this, "Permission Granted", Toast.LENGTH_LONG).show();
                     // start picker to get image for cropping and then use the image in cropping activity
                     CropImage.activity()
                             .setGuidelines(CropImageView.Guidelines.ON)
@@ -222,7 +197,6 @@ public class SetupActivity extends AppCompatActivity {
             }
         });
     }
-
 
     // Here the image result is returned. If it returns the crop image, then only it proceeds
     @Override
@@ -241,4 +215,11 @@ public class SetupActivity extends AppCompatActivity {
         }
 
     }
+    private void sendToLogin() {
+        Intent intent = new Intent(SetupActivity.this, LoginActivity.class);
+        startActivity(intent);
+        // With finish user wont be able to come back by pressing the back button
+        finish();
+    }
+
 }

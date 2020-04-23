@@ -52,9 +52,12 @@ public class RentalRecyclerAdapter extends RecyclerView.Adapter<RentalRecyclerAd
         String desc_data = rentalPostList.get(position).getDesc();
         holder.setDescText(desc_data);
 
-        //Getting the rental post image.
+        //Getting the rental post image and price
         String image_url = rentalPostList.get(position).getImage_url();
         holder.setRentalImage(image_url);
+
+        String rentalPrice = rentalPostList.get(position).getPrice();
+        holder.setRentalPrice(rentalPrice);
 
         //Getting the user related data like name and image of the user who posted the actual rental post.
 
@@ -76,8 +79,8 @@ public class RentalRecyclerAdapter extends RecyclerView.Adapter<RentalRecyclerAd
 
         //Getting the rental post date on which it was posted.
         long milliseconds = rentalPostList.get(position).getTimestamp().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        String dateString = dateFormat.format(milliseconds);
+        DateFormat dateFormat = new SimpleDateFormat("hh");
+        String dateString = dateFormat.format(milliseconds) + " hours ago";
         holder.setDate(dateString);
 
     }
@@ -95,6 +98,7 @@ public class RentalRecyclerAdapter extends RecyclerView.Adapter<RentalRecyclerAd
         private TextView rentalPostDate;
         private TextView userName;
         private CircleImageView userImage;
+        private TextView rentalPrice;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -132,6 +136,11 @@ public class RentalRecyclerAdapter extends RecyclerView.Adapter<RentalRecyclerAd
             placeholderoption.placeholder(R.drawable.default_profile_image);
             userName.setText(name);
             Glide.with(context).applyDefaultRequestOptions(placeholderoption).load(image).into(userImage);
+        }
+
+        public void setRentalPrice(String price){
+            rentalPrice = mView.findViewById(R.id.rental_price);
+            rentalPrice.setText(price);
         }
     }
 }

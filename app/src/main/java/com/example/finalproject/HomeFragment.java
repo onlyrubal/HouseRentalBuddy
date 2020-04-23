@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 /**
@@ -85,8 +88,11 @@ public class HomeFragment extends Fragment {
             firstQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
                 public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-
-                    if(isFirstPageFirstLoad) {
+                    if(e!=null) {
+                        Log.d(TAG,"Error:"+e.getMessage());
+                    }
+                    else {
+                        if(isFirstPageFirstLoad) {
                         lastVisible = queryDocumentSnapshots.getDocuments().get(queryDocumentSnapshots.size() - 1);
                     }
                     for (DocumentChange documentChange : queryDocumentSnapshots.getDocumentChanges()) {
@@ -102,7 +108,7 @@ public class HomeFragment extends Fragment {
                         }
                     }
                     isFirstPageFirstLoad = false;
-
+                    }
                 }
             });
         }
@@ -121,14 +127,18 @@ public class HomeFragment extends Fragment {
         nextQuery.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-
-                if(!queryDocumentSnapshots.isEmpty()) {
-                    lastVisible = queryDocumentSnapshots.getDocuments().get(queryDocumentSnapshots.size() - 1);
-                    for (DocumentChange documentChange : queryDocumentSnapshots.getDocumentChanges()) {
-                        if (documentChange.getType() == DocumentChange.Type.ADDED) {
-                            RentalPost rentalPost = documentChange.getDocument().toObject(RentalPost.class);
-                            rentalPostList.add(rentalPost);
-                            rentalRecyclerAdapter.notifyDataSetChanged();
+                //This exception is to prevent Null pointer exception that was causing crash while logging out an app.
+                if(e!=null) {
+                    Log.d(TAG,"Error:"+e.getMessage());
+                }else{
+                    if(!queryDocumentSnapshots.isEmpty()) {
+                        lastVisible = queryDocumentSnapshots.getDocuments().get(queryDocumentSnapshots.size() - 1);
+                        for (DocumentChange documentChange : queryDocumentSnapshots.getDocumentChanges()) {
+                            if (documentChange.getType() == DocumentChange.Type.ADDED) {
+                                RentalPost rentalPost = documentChange.getDocument().toObject(RentalPost.class);
+                                rentalPostList.add(rentalPost);
+                                rentalRecyclerAdapter.notifyDataSetChanged();
+                            }
                         }
                     }
                 }

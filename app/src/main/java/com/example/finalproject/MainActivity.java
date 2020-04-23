@@ -65,9 +65,11 @@ public class MainActivity extends AppCompatActivity {
 
                     switch (item.getItemId()) {
                         case R.id.bottom_action_home:
+                            addPostBtn.setVisibility(View.VISIBLE);
                             replaceFragment(homeFragment);
                             return true;
                         case R.id.bottom_action_account:
+                            addPostBtn.setVisibility(View.INVISIBLE);
                             replaceFragment(accountFragment);
                             return true;
                         default:

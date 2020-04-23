@@ -44,7 +44,7 @@
                 android:layout_marginTop="8dp"
                 android:src="@drawable/default_profile_image"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.089"
+                app:layout_constraintHorizontal_bias="0.02"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rental_image" />
 
@@ -52,12 +52,13 @@
                 android:id="@+id/rental_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="28dp"
                 android:text="@string/rental_post_date_text"
-                android:textColor="@color/primaryDarkColor"
-                android:textSize="18sp"
+                android:textColor="@color/primaryLightColor"
+                android:textSize="12sp"
+                android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.949"
+                app:layout_constraintHorizontal_bias="0.91"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rental_image"
                 tools:text="@string/rental_post_date_text" />
@@ -67,12 +68,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="28dp"
                 android:text="User Name"
-                android:textColor="@color/primaryDarkColor"
-                android:textSize="18sp"
+                android:textColor="@color/primaryLightColor"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.027"
+                app:layout_constraintHorizontal_bias="0.16"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rental_image" />
 
@@ -92,6 +94,34 @@
                 app:layout_constraintHorizontal_bias="0.38"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rental_image" />
+
+            <TextView
+                android:id="@+id/rental_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="68dp"
+                android:text="Price :"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.023"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rental_image" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="$"
+                android:textColor="@color/primaryDarkColor"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/rental_price"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_image" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
