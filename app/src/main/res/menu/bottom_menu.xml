@@ -8,12 +8,6 @@
         android:icon="@drawable/outline_home"
         android:title="@string/bottom_home_text" />
     <item
-        android:id="@+id/bottom_action_favourites"
-        android:checkable="false"
-        android:checked="false"
-        android:icon="@drawable/outline_favourite"
-        android:title="@string/bottom_notification_text" />
-    <item
         android:id="@+id/bottom_action_account"
         android:icon="@drawable/outline_account"
         android:title="@string/bottom_account_text" />

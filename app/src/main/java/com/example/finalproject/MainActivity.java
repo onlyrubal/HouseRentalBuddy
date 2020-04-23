@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView mainBottomNav;
 
     private HomeFragment homeFragment;
-    private FavouriteFragment favouriteFragment;
     private AccountFragment accountFragment;
 
 
@@ -40,44 +39,43 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
-        mainBottomNav = (BottomNavigationView) findViewById(R.id.mainBottomNav);
-
-        //Initializing fragments
-
-        homeFragment = new HomeFragment();
-        favouriteFragment = new FavouriteFragment();
-        accountFragment = new AccountFragment();
 
 
-        addPostBtn = findViewById(R.id.add_post_btn);
-        addPostBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent newPostIntent = new Intent(MainActivity.this,NewRentalActivity.class);
-                startActivity(newPostIntent);
-            }
-        });
+        if(mAuth.getCurrentUser() !=null) {
+            mainBottomNav = (BottomNavigationView) findViewById(R.id.mainBottomNav);
+            //Initializing fragments
 
-        //Setting up the onClick listener for bottom navigation bar. This listener is different than normal button listener
-        mainBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            homeFragment = new HomeFragment();
+            accountFragment = new AccountFragment();
 
-                switch (item.getItemId()){
-                    case R.id.bottom_action_home:
-                        replaceFragment(homeFragment);
-                        return true;
-                    case R.id.bottom_action_favourites:
-                        replaceFragment(favouriteFragment);
-                        return true;
-                    case R.id.bottom_action_account:
-                        replaceFragment(accountFragment);
-                        return true;
-                    default:
-                        return false;
+            replaceFragment(homeFragment);
+            addPostBtn = findViewById(R.id.add_post_btn);
+            addPostBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent newPostIntent = new Intent(MainActivity.this, NewRentalActivity.class);
+                    startActivity(newPostIntent);
                 }
-            }
-        });
+            });
+
+            //Setting up the onClick listener for bottom navigation bar. This listener is different than normal button listener
+            mainBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                    switch (item.getItemId()) {
+                        case R.id.bottom_action_home:
+                            replaceFragment(homeFragment);
+                            return true;
+                        case R.id.bottom_action_account:
+                            replaceFragment(accountFragment);
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
+            });
+        }
     }
 
     @Override
